@@ -208,7 +208,14 @@ def four(arg1):
 	# help(str) and help(list), you might also need to use a function that can create a list of numbers for you, try help(range).
 
 def five(input):
-	return []
+
+listInput = input.split(",")
+
+	for i in range(3, len(listInput), 4):
+		print(listInput[i])
+	return True
+
+five("Jeff,random.py,False,1445")
 
 	# <QUESTION 6>
 
@@ -244,7 +251,6 @@ def six(input):
 		else:
 			continue
 	return False
-
 
 # print(six("ceiling"))# == True
 # print(six("believe"))# == True
