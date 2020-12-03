@@ -35,10 +35,13 @@
 	# What was the name of the function we have seen to check the length of a container?  Use your CLI to access the Python documentation and get help(len).
 
 def one(input1, input2):
-	return ""
-
-
-
+	if len(input1) > len(input2):
+		return input1
+	elif len(input1) < len(input2):
+		return input2
+	elif len(input1) == len(input2):
+		equalLength = input1 + " " + input2
+		return equalLength
 
 	# <QUESTION 2>
 
@@ -88,8 +91,16 @@ def two(input):
 	# No Hints for this question
 
 def three(arg1):
-	return "null"
+	if arg1 % 3 == 0 and arg1 % 5 != 0:
+		return "fizz"
+	elif arg1 % 3 != 0 and arg1 % 5 == 0:
+		return "buzz"
+	elif arg1 % 3 == 0 and arg1 % 5 == 0:
+		return "fizzbuzz"
+	else:
+		return "null"
 
+print(three(8))
 
 	# <QUESTION 4>
 
@@ -114,7 +125,38 @@ def three(arg1):
 	# help(int) for working with numbers and help(str) for working with Strings.
 
 def four(arg1):
-	return 0
+	codeInNumbers = []
+	identifier = 0
+	highestSum = 0
+	tempSum = 0
+
+	for i in range(len(arg1)):
+
+		# deals with all strings of characters except for last one
+		if arg1[i] == " ":
+			tempSum = 0
+			for j in range(identifier, i):
+				tempSum = tempSum + int(arg1[j])
+				if tempSum > highestSum:
+					highestSum = tempSum
+			identifier = i+1
+		
+		# return last string of characters
+		elif i == len(arg1)-1 :
+			tempSum = 0
+			for j in range(identifier, i+1):
+				tempSum = tempSum + int(arg1[j])
+				if tempSum > highestSum:
+					highestSum = tempSum
+	return highestSum
+
+
+# print(four("12 34 56"))
+# print(four("55 72 86")) #== 14
+# print(four("15 72 80 164")) #== 11
+# print(four("555 72 86 45 10")) #== 15
+# print(four("98 63 34 1 13")) #== 17
+# print(four("98 107 415")) #== 17
 
 	# <QUESTION 5>
 
