@@ -229,7 +229,29 @@ def five(input):
 
 
 def six(input):
-    return False
+	message = str(input)
+	for i in range(len(message)):
+		if message[i] == "e" and message[i+1] == "i":
+			if message[i-1] == "c":
+				return True
+			else:
+				return False
+		elif message[i] == "i" and message[i+1] == "e":
+			if message[i-1] != "c":
+				return True
+			else:
+				return False
+		else:
+			continue
+	return False
+
+
+# print(six("ceiling"))# == True
+# print(six("believe"))# == True
+# print(six("glacier")) # == False
+# print(six("height"))# == False
+# print(six("receive"))# == True
+
 
 	# <QUESTION 7>
 
