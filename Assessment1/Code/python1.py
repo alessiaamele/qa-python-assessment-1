@@ -66,9 +66,33 @@ def one(input1, input2):
 	# Use your CLI to access the Python documentation and get help manipulating strings - help(str).
 
 def two(input):
-	return ""
+	listInput = list(input)
+	message = ""
+	bertOccurances = []
+	startMessage = 0
+	endMessage = 0
+	for i in range(len(listInput)):
+		if listInput[i] == "B" or listInput[i] == "b":
+			if listInput[i+1] == "E" or listInput[i+1] == "e":
+				if listInput[i+2] == "R" or listInput[i+2] == "r":
+					if listInput[i+3] == "T" or listInput[i+3] == "t":
+						bertOccurances.append(i)
 
+	if len(bertOccurances) == 2:
+		startMessage = int(bertOccurances[0])+4
+		endMessage = int(bertOccurances[1])
+		for k in range(startMessage, endMessage):
+			message = message + str(listInput[k])
+	
+	return message
 
+# print(two("bertobert"))
+# print(two("xxbertoobertxx"))
+# print(two("bertclivebert"))# == "clive"
+# print(two("xxbertfridgebertyy"))# == "fridge"
+# print(two("xxBertfridgebERtyy"))# == "fridge"
+# print(two("xxbertyy"))# == ""
+# print(two("xxbeRTyy"))# == ""
 
 
 	# <QUESTION 3>
@@ -100,7 +124,7 @@ def three(arg1):
 	else:
 		return "null"
 
-print(three(8))
+#print(three(8))
 
 	# <QUESTION 4>
 
